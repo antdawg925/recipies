@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type=""text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Dashboard</title>
+</head>
+<div class="block">
+
+
+    <h1 >Welcome {{logged_in_user.first_name}}</h1>
+
+    <a href="/logout" class="button logout">Logout</a>  
+    <a href="/add_recipe" class="button">Create</a>
+</div>
+
+<body class="inline">
+    <table>
+        <thead>
+            <tr>
+                <th class="space">Name</th>
+                <th class="space">Under 30 minutes</th>
+                <th class='space'> Created By:</th>
+                <th class='space'> Actions</th>
+            </tr>
+        </thead>
+        <tbody class="space">
+            {% for one_recipe in recipes %}
+            <tr>
+                <td class="row space navi">{{one_recipe.name}}</td>
+                <td class="row space navi">{{one_recipe.min30}}</td>
+                <td class="row space navi">{{one_recipe.user.first_name}}</td>
+                
+
+                <td class="navi space ">
+                    <a href="/edit/{{one_recipe.id}}" class="button space row">Edit</a>
+                    <a href="/delete/{{one_recipe.id}}" class="button space row">Delete</a>
+                    <a href="/view/{{one_recipe.id}}" class="button">View</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+

@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type=""text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>hello </h1>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Under 30 minutes</th>
+            <th>Description</th>
+            <th>Instructions</th>
+        </thead>
+        <tbody>
+            <td>{{recipe.name}}</td>
+            <td>{{recipe.min30}}</td>
+            <td>{{recipe.description}}</td>
+            <td>{{recipe.instructions}}</td>        
+        </tbody>
+    </table>
+    <a href="/dashboard" class="button">Dashboard</a>
+    <a href="/logout" class="button">Logout</a>
+</body>

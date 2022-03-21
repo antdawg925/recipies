@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type=""text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>login or Register</title>
+</head>
+
+
+<body class="landscape">
+    <div>
+        <form action="/create_user" method="POST" class="reg">
+            <h1>Register Now</h1>
+            <div class="column">
+                <th>First name</th>
+                <input type="text" name="first_name"
+                placeholder="Your first name...">
+            </div>
+            <div class="column">
+                <th class="column">Last Name</th>
+                <input type="text" name="last_name"
+                placeholder="Your last name...">
+            </div>
+            <div class="column"> 
+                <th>Email</th>
+                <input type="email" name="email"
+                placeholder="Your email..."> 
+        </div>
+            <div class="column"> 
+                <th>Password</th>
+                <input type="text" name="password"
+                placeholder="Create Password..."> 
+            </div>
+            <div class="column"> 
+                <th>Confirm password</th>
+                <input type="text" name="confirm"
+                placeholder="Confirm Password..."> 
+            </div>
+
+            <input type="submit" value='Submit' class="button">
+        </form>
+    </div> 
+
+<!-- ________________________________________________________________________ -->
+
+    
+    <form action="/login" method="POST" class="reg">
+        <h1>Login </h1>
+        <div class="column"> 
+            <th>Email</th>
+            <input type="email" name="email"
+            placeholder="Your email..."> 
+        </div>
+        <div class="column"> 
+            <th>Password</th>
+            <input type="text" name="password"
+            placeholder="Enter Password..."> 
+        </div>
+
+
+        <input type="submit" value='Log In' class="button">
+    </form>
+</body>
+<h4 class="flash">
+    {% with messages = get_flashed_messages() %}    
+        {% if messages %}                            
+            {% for message in messages %}            
+                <p>{{message}}</p>                   
+            {% endfor %}
+        {% endif %}
+    {% endwith %} 
+</h4>
+
+</html> 

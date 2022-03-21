@@ -1,0 +1,43 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type=""text/css" href="{{ url_for('static', filename='style.css') }}">
+        <title>login or Register</title>
+    </head>
+    <h1></h1>
+    </html>    
+    <a href="/dashboard" class="button">Dashboard</a>
+    
+    <form action="/update/{{recipe.id}}" method="POST">
+            <tr>
+            
+                <label for="name">Name</label>
+                <input type="text" name="name" value="{{recipe.name}}">
+
+
+                <label for="min30">UNDER 30 MIN?</label>
+                <input type="text" name="min30" >
+            
+                <label for="description">Description</label>
+                <input type="text" name="description" value="{{recipe.description}}">
+            
+            
+                <label for="instructions">Instructions</label>                
+                <input type="text" name="instructions" value="{{recipe.instructions}}">
+            
+
+            </tr>
+            {% with messages = get_flashed_messages() %}    
+                {% if messages %}                            
+                    {% for message in messages %}            
+                        <p>{{message}}</p>                   
+                    {% endfor %}
+                {% endif %}
+            {% endwith %} 
+            <input type="submit" value = "Update" class="button"> 
+        </form>
+        
+        <a href="/logout" class="button">Logout</a>
+</html>
